@@ -4,7 +4,7 @@ import React from 'react'
 export default class FlashCard extends React.Component {
   render() {
     return (
-      <form className="card shadow">
+      <form className="card-body" >
         <div className="form-group">
           <label htmlFor="question">Question</label>
           <input type="text" className="form-control" id="question"/>
@@ -13,7 +13,6 @@ export default class FlashCard extends React.Component {
           <label htmlFor="answer">Answer</label>
           <input type="text" className="form-control" id="answer"/>
         </div>
-        <button type="submit" className="btn btn-primary">Save</button>
       </form>
     )
   }
