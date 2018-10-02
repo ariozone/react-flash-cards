@@ -1,5 +1,4 @@
 import React from 'react'
-// import ReactDOM from 'react-dom'
 
 export default class FlashCard extends React.Component {
   render() {
@@ -13,8 +12,8 @@ export default class FlashCard extends React.Component {
           <label htmlFor="answer">Answer</label>
           <input type="text" className="form-control" id="answer"/>
         </div>
+        <button type="submit" className="btn btn-primary btn-block">Save</button>
       </form>
     )
   }
 }
-// ReactDOM.render(<FlashCard/>, document.getElementById('root'))
