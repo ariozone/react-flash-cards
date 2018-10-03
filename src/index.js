@@ -1,5 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import FlashCard from './card'
+import CardCreator from './create-card'
 
-ReactDOM.render(<FlashCard/>, document.getElementById('root'))
+ReactDOM.render(<CardCreator/>, document.getElementById('root'))
