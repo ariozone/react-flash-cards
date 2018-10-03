@@ -11,15 +11,21 @@ export default class CardCreator extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   handleChange(e) {
-    const {question, answer} = e.target
-    this.setState({
-      question: question,
-      answer: answer
-    })
+    if (e.target.name === 'question') {
+      this.setState({
+        question: e.target.value
+      })
+    }
+    if (e.target.name === 'answer') {
+      this.setState({
+        answer: e.target.value
+      })
+    }
   }
   handleSubmit(e) {
     e.preventDefault()
-    this.state({question: '', answer: ''})
+    this.props.onSubmit({question: this.state.question, answer: this.state.answer})
+    this.setState({question: '', answer: ''})
   }
 
   render() {
@@ -30,6 +36,7 @@ export default class CardCreator extends React.Component {
             <label className="question">Question</label>
             <input
               type="text"
+              name="question"
               className="form-control"
               id="question"
               value = {this.state.question}
@@ -39,6 +46,7 @@ export default class CardCreator extends React.Component {
             <label className="answer">Answer</label>
             <input
               type="text"
+              name="answer"
               className="form-control"
               id="answer"
               value={this.state.answer}
