@@ -31,7 +31,8 @@ export default class CardCreator extends React.Component {
 
   render() {
     return (
-      <div className="title">Creat a Flash Card
+      <div>
+        <div className="title">Creat a Flash Card</div>
         <form className="card-body" onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label className="question">Question</label>
