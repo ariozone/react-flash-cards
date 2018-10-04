@@ -10,13 +10,13 @@ export default class App extends React.Component {
     this.saveCard = this.saveCard.bind(this)
   }
   saveCard(card) {
-    this.state.cards.push(card)
+    const cardsArray = this.state.cards.slice()
+    cardsArray.push(card)
+    this.setState({cards: cardsArray})
   }
   render() {
     return (
-
       <CardCreator onSubmit={this.saveCard}/>
-
     )
   }
 }
