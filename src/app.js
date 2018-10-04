@@ -1,8 +1,8 @@
 import CardCreator from './create-card'
-import React from 'react'
+import React, { Component, Fragment } from 'react'
 // import CardsList from './cards-list'
 
-export default class App extends React.Component {
+export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -17,9 +17,9 @@ export default class App extends React.Component {
   }
   render() {
     return (
-      <div className="app">
+      <Fragment>
         <CardCreator onSubmit={this.saveCard}/>
-      </div>
+      </Fragment>
     )
   }
 }
