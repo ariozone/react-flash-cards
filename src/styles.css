@@ -26,3 +26,7 @@ label {
   color: gray;
   text-align: center;
 }
+
+.app {
+  background-color: gray;
+}

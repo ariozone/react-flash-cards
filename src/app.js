@@ -1,5 +1,6 @@
 import CardCreator from './create-card'
 import React from 'react'
+import CardsList from './cards-list'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -16,7 +17,10 @@ export default class App extends React.Component {
   }
   render() {
     return (
-      <CardCreator onSubmit={this.saveCard}/>
+      <div className="app">
+        <CardCreator onSubmit={this.saveCard}/>
+        <CardsList />
+      </div>
     )
   }
 }
