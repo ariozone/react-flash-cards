@@ -1,5 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import CardCreator from './create-card'
+import App from './app'
 
-ReactDOM.render(<CardCreator/>, document.getElementById('root'))
+ReactDOM.render(<App/>, document.getElementById('root'))

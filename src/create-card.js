@@ -24,8 +24,9 @@ export default class CardCreator extends React.Component {
   }
   handleSubmit(e) {
     e.preventDefault()
+    const { question, answer } = this.state
     this.setState({question: '', answer: ''})
-    console.log(this.state)
+    this.props.onSubmit({question, answer})
   }
 
   render() {
