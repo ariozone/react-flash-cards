@@ -43,8 +43,8 @@ export default class App extends Component {
       })
     })
     window.addEventListener('beforeunload', () => {
-      const { id, card } = this.state
-      const stateJson = JSON.stringify({ id, card })
+      const { cardNumber, cards } = this.state
+      const stateJson = JSON.stringify({ cardNumber, cards })
       localStorage.setItem('card-app-state', stateJson)
     })
   }
