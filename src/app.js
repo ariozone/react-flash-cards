@@ -9,7 +9,7 @@ export default class App extends Component {
     super(props)
     const { path } = hash.parse(location.hash)
     this.state = {
-      cards: [{question: 'who?', answer: 'khgdhgf adhgadhgdf dhgi kjdhgks khkdsdhjgs skhfdkjgh sdkh;aj lsdhgdf sghgh'}, {question: 'where?', answer: 'occs'}],
+      cards: [],
       view: {
         path
       }

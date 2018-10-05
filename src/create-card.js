@@ -27,9 +27,11 @@ export default class CardCreator extends React.Component {
     const { question, answer } = this.state
     this.setState({question: '', answer: ''})
     this.props.onSubmit({question, answer})
+
   }
 
   render() {
+    const { question, answer } = this.state
     return (
       <div>
         <div className="title">Creat a Flash Card</div>
@@ -37,21 +39,23 @@ export default class CardCreator extends React.Component {
           <div className="form-group">
             <label className="question">Question</label>
             <input
+              required
               type="text"
               name="question"
               className="form-control"
               id="question"
-              value = {this.state.question}
+              value = {question}
               onChange={this.handleChange}/>
           </div>
           <div className="form-group">
             <label className="answer">Answer</label>
             <input
+              required
               type="text"
               name="answer"
               className="form-control"
               id="answer"
-              value={this.state.answer}
+              value={answer}
               onChange={this.handleChange}/>
 
           </div>
@@ -60,4 +64,5 @@ export default class CardCreator extends React.Component {
       </div>
     )
   }
+
 }
