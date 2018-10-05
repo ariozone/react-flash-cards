@@ -9,7 +9,7 @@ export default class App extends Component {
     this.state = {
       cards: [],
       view: {
-        path: 'list',
+        path: '',
         params: {}
       }
     }
