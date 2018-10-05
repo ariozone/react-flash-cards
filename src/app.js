@@ -30,6 +30,14 @@ export default class App extends Component {
         return <CardsList cards={this.state.cards}/>
     }
   }
+  componentDidMount() {
+    window.addEventListener('hashchange', () => {
+      const { path } = hash.parse(location.hash)
+      this.setState({
+        view: { path }
+      })
+    })
+  }
   render() {
     return (
       <Fragment>
