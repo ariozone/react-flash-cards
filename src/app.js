@@ -26,7 +26,7 @@ export default class App extends Component {
       case 'create':
         return <CardCreator onSubmit={this.saveCard}/>
       case 'list':
-        return <CardsList/>
+        return <CardsList cards={this.state.cards}/>
     }
   }
   render() {
