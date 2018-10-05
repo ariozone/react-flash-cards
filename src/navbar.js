@@ -5,7 +5,7 @@ export default function Navbar() {
       <div className="collapse navbar-collapse">
         <div className="navbar-nav">
           <a className="nav-item nav-link" href="#list">My Flashcards</a>
-          <a className="nav-item nav-link" href="#create">Create Flashcard</a>
+          <a className="nav-item nav-link" href="#create">Create a Flashcard</a>
         </div>
       </div>
     </nav>
