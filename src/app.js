@@ -7,19 +7,24 @@ import hash from './hash'
 export default class App extends Component {
   constructor(props) {
     super(props)
+    const stateJson = localStorage.getItem('card-app-state')
+    const appState = JSON.parse(stateJson) || {}
     const { path } = hash.parse(location.hash)
     this.state = {
-      cards: [],
       view: {
         path
-      }
+      },
+      cards: appState.cards || [],
+      cardNumber: appState.cardNumber || 1
     }
     this.saveCard = this.saveCard.bind(this)
   }
   saveCard(card) {
+    const {cardNumber} = this.state
     const cardsArray = this.state.cards.slice()
     cardsArray.push(card)
-    this.setState({cards: cardsArray})
+    this.setState({cards: cardsArray,
+      cardNumber: cardNumber + 1})
   }
   renderView() {
     const { path } = this.state.view
@@ -37,7 +42,13 @@ export default class App extends Component {
         view: { path }
       })
     })
+    window.addEventListener('beforeunload', () => {
+      const { id, card } = this.state
+      const stateJson = JSON.stringify({ id, card })
+      localStorage.setItem('card-app-state', stateJson)
+    })
   }
+
   render() {
     return (
       <Fragment>
