@@ -2,15 +2,16 @@ import CardCreator from './create-card'
 import React, { Component, Fragment } from 'react'
 import CardsList from './cards-list'
 import Navbar from './navbar'
+import hash from './hash'
 
 export default class App extends Component {
   constructor(props) {
     super(props)
+    const { path } = hash.parse(location.hash)
     this.state = {
       cards: [{question: 'who?', answer: 'khgdhgf adhgadhgdf dhgi kjdhgks khkdsdhjgs skhfdkjgh sdkh;aj lsdhgdf sghgh'}, {question: 'where?', answer: 'occs'}],
       view: {
-        path: 'list',
-        params: {}
+        path
       }
     }
     this.saveCard = this.saveCard.bind(this)
@@ -21,7 +22,7 @@ export default class App extends Component {
     this.setState({cards: cardsArray})
   }
   renderView() {
-    const {path} = this.state.view
+    const { path } = this.state.view
     switch (path) {
       case 'create':
         return <CardCreator onSubmit={this.saveCard}/>
