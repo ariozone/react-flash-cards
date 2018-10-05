@@ -29,7 +29,7 @@ export default class App extends Component {
     switch (path) {
       case 'create':
         return <CardCreator onSubmit={this.saveCard}/>
-      case 'list':
+      default:
         return <CardsList cards={this.state.cards}/>
     }
   }
