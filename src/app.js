@@ -7,9 +7,9 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      cards: [],
+      cards: [{question: 'who?', answer: 'khgdhgf adhgadhgdf dhgi kjdhgks khkdsdhjgs skhfdkjgh sdkh;aj lsdhgdf sghgh'}, {question: 'where?', answer: 'occs'}],
       view: {
-        path: '',
+        path: 'list',
         params: {}
       }
     }
