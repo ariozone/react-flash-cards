@@ -11,9 +11,7 @@ export default class App extends Component {
     const appState = JSON.parse(stateJson) || {}
     const { path } = hash.parse(location.hash)
     this.state = {
-      view: {
-        path
-      },
+      view: path,
       cards: appState.cards || [],
       cardNumber: appState.cardNumber || 1
     }
