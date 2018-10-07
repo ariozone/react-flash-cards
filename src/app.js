@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react'
 import CardsList from './cards-list'
 import Navbar from './navbar'
 import hash from './hash'
+import CardEditor from './edit-card'
 
 export default class App extends Component {
   constructor(props) {
@@ -17,6 +18,7 @@ export default class App extends Component {
     }
     this.saveCard = this.saveCard.bind(this)
   }
+
   saveCard(card) {
     const {cardNumber} = this.state
     const cardsArray = this.state.cards.slice()
@@ -24,15 +26,19 @@ export default class App extends Component {
     this.setState({cards: cardsArray,
       cardNumber: cardNumber + 1})
   }
+
   renderView() {
     const { path } = this.state.view
     switch (path) {
       case 'create':
         return <CardCreator onSubmit={this.saveCard}/>
+      case 'edit':
+        return <CardEditor cards={this.state.cards}/>
       default:
         return <CardsList cards={this.state.cards}/>
     }
   }
+
   componentDidMount() {
     window.addEventListener('hashchange', () => {
       const { path } = hash.parse(location.hash)

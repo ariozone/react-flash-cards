@@ -15,7 +15,7 @@ export default class CardsList extends React.Component {
                     <div className="card-body">
                       <h5 className="card-title">Q: {card.question}</h5>
                       <h6 className="card-text">A: {card.answer}</h6>
-                      <a><i className="far fa-edit"></i></a>
+                      <a href="#edit"><i className="far fa-edit"></i></a>
                     </div>
                   </div>
                 )
