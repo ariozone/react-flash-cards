@@ -10,9 +10,9 @@ export default class App extends Component {
     super(props)
     const stateJson = localStorage.getItem('card-app-state')
     const appState = JSON.parse(stateJson) || {}
-    const { path } = hash.parse(location.hash)
+    const { path, params } = hash.parse(location.hash)
     this.state = {
-      view: path,
+      view: {path, params},
       cards: appState.cards || [],
       cardNumber: appState.cardNumber || 1,
       currentCard: ''
