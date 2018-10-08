@@ -4,8 +4,11 @@ export default class CardEditor extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      question: this.props.selectedCard.question,
+      answer: this.props.selectedCard.answer
     }
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange(e) {
@@ -23,9 +26,8 @@ export default class CardEditor extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     const { question, answer } = this.state
-    this.setState({question: '', answer: ''})
+    this.setState({question: this.props.selectedCard.question, answer: this.props.selectedCard.answer})
     this.props.onSubmit({question, answer})
-
   }
 
   render() {
@@ -41,7 +43,8 @@ export default class CardEditor extends React.Component {
               name="question"
               className="form-control"
               id="question"
-              value = {this.props.question}/>
+              value = {this.state.question}
+              onChange={this.handleChange}/>
           </div>
           <div className="form-group">
             <label className="answer">Answer</label>
@@ -50,7 +53,8 @@ export default class CardEditor extends React.Component {
               name="answer"
               className="form-control"
               id="answer"
-              value={this.props.answer}/>
+              value={this.state.answer}
+              onChange={this.handleChange}/>
 
           </div>
           <button type="submit" className="btn btn-secondary btn-lg btn-block"><em>Update</em></button>
