@@ -9,14 +9,14 @@ export default class CardsList extends React.Component {
         <div className="row d-flex justify-content-center">
           {
             this.props.cards.map((card, number) => {
-              // const id = card.id
+              const id = card.id
               // const link = `#edit?card=${id}`
               return (
-                <div key={number} className="card" style={styles.card} >
+                <div key={id} className="card" style={styles.card} >
                   <div className="card-body">
                     <h5 className="card-title">Q:  {card.question}</h5>
                     <h6 className="card-text">A:  {card.answer}</h6>
-                    <a href= "#edit" className="far fa-edit"></a>
+                    <a href= {`#edit?cardId=${id}`} className="far fa-edit"></a>
                   </div>
                 </div>
               )
