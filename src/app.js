@@ -30,12 +30,16 @@ export default class App extends Component {
   }
 
   renderView() {
-    const { path } = this.state.view
+    const { path, params } = this.state.view
     switch (path) {
       case 'create':
         return <CardCreator onSubmit={this.saveCard}/>
       case 'edit':
-        return <CardEditor/>
+        const { cardId } = params
+        const selectedCard = cardId
+          ? this.state.cards.find(card => card.id === parseInt(cardId, 10))
+          : this.state.cards
+        return <CardEditor selectedCard={selectedCard} cardId={cardId}/>
       default:
         return <CardsList cards={this.state.cards}/>
     }
@@ -43,9 +47,9 @@ export default class App extends Component {
 
   componentDidMount() {
     window.addEventListener('hashchange', () => {
-      const { path } = hash.parse(location.hash)
+      const { path, params } = hash.parse(location.hash)
       this.setState({
-        view: { path }
+        view: { path, params }
       })
     })
     window.addEventListener('beforeunload', () => {

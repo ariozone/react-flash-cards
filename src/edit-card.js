@@ -13,6 +13,7 @@ export default class CardEditor extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div>
         <div className="title">Edit this Flash Card</div>
