@@ -8,8 +8,24 @@ export default class CardEditor extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  handleChange(e) {
+    if (e.target.name === 'question') {
+      this.setState({
+        question: e.target.value
+      })
+    }
+    if (e.target.name === 'answer') {
+      this.setState({
+        answer: e.target.value
+      })
+    }
+  }
   handleSubmit(e) {
     e.preventDefault()
+    const { question, answer } = this.state
+    this.setState({question: '', answer: ''})
+    this.props.onSubmit({question, answer})
+
   }
 
   render() {
