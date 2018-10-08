@@ -1,6 +1,17 @@
 import React from 'react'
 
 export default class CardEditor extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+    }
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
+  handleSubmit(e) {
+    e.preventDefault()
+  }
+
   render() {
     return (
       <div>
@@ -12,7 +23,8 @@ export default class CardEditor extends React.Component {
               type="text"
               name="question"
               className="form-control"
-              id="question"/>
+              id="question"
+              value = {this.props.question}/>
           </div>
           <div className="form-group">
             <label className="answer">Answer</label>
@@ -20,7 +32,9 @@ export default class CardEditor extends React.Component {
               type="text"
               name="answer"
               className="form-control"
-              id="answer"/>
+              id="answer"
+              value={this.props.answer}/>
+
           </div>
           <button type="submit" className="btn btn-secondary btn-lg btn-block"><em>Update</em></button>
         </form>

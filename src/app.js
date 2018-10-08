@@ -14,7 +14,8 @@ export default class App extends Component {
     this.state = {
       view: path,
       cards: appState.cards || [],
-      cardNumber: appState.cardNumber || 1
+      cardNumber: appState.cardNumber || 1,
+      currentCard: ''
     }
     this.saveCard = this.saveCard.bind(this)
   }
@@ -22,6 +23,7 @@ export default class App extends Component {
   saveCard(card) {
     const {cardNumber} = this.state
     const cardsArray = this.state.cards.slice()
+    card.id = cardNumber
     cardsArray.push(card)
     this.setState({cards: cardsArray,
       cardNumber: cardNumber + 1})
@@ -33,7 +35,7 @@ export default class App extends Component {
       case 'create':
         return <CardCreator onSubmit={this.saveCard}/>
       case 'edit':
-        return <CardEditor cards={this.state.cards}/>
+        return <CardEditor/>
       default:
         return <CardsList cards={this.state.cards}/>
     }
