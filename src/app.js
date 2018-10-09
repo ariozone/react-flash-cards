@@ -14,32 +14,49 @@ export default class App extends Component {
     this.state = {
       view: {path, params},
       cards: appState.cards || [],
-      cardNumber: appState.cardNumber || 1,
-      currentCard: ''
+      cardNumber: appState.cardNumber || 1
     }
     this.saveCard = this.saveCard.bind(this)
+    this.updateCard = this.updateCard.bind(this)
   }
 
   saveCard(card) {
-    const {cardNumber} = this.state
-    const cardsArray = this.state.cards.slice()
+    const {cardNumber, cards} = this.state
+    const cardsArray = cards.slice()
     card.id = cardNumber
     cardsArray.push(card)
     this.setState({cards: cardsArray,
       cardNumber: cardNumber + 1})
+    location.hash = '#list'
+  }
+
+  updateCard(changedCard) {
+    const {cards} = this.state
+    const cardsArray = cards.map(card => {
+      if (card.id === parseInt(this.state.view.params.cardId, 10)) {
+        return changedCard
+      }
+      else {
+        return card
+      }
+    })
+    this.setState({
+      cards: cardsArray
+    })
+    location.hash = '#list'
   }
 
   renderView() {
     const { path, params } = this.state.view
     switch (path) {
       case 'create':
-        return <CardCreator onSubmit={this.saveCard}/>
+        return <CardCreator onSubmit={this.saveCard} cardNumber={this.state.cardNumber}/>
       case 'edit':
         const { cardId } = params
         const selectedCard = cardId
           ? this.state.cards.find(card => card.id === parseInt(cardId, 10))
           : this.state.cards
-        return <CardEditor selectedCard={selectedCard} cardId={cardId}/>
+        return <CardEditor selectedCard={selectedCard} onSubmit={this.updateCard}/>
       default:
         return <CardsList cards={this.state.cards}/>
     }
@@ -52,11 +69,11 @@ export default class App extends Component {
         view: { path, params }
       })
     })
-    window.addEventListener('beforeunload', () => {
-      const { cardNumber, cards } = this.state
-      const stateJson = JSON.stringify({ cardNumber, cards })
-      localStorage.setItem('card-app-state', stateJson)
-    })
+    // window.addEventListener('beforeunload', () => {
+    //   const { cardNumber, cards } = this.state
+    //   const stateJson = JSON.stringify({ cardNumber, cards })
+    //   localStorage.setItem('card-app-state', stateJson)
+    // })
   }
 
   render() {
