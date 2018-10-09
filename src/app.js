@@ -69,11 +69,11 @@ export default class App extends Component {
         view: { path, params }
       })
     })
-    // window.addEventListener('beforeunload', () => {
-    //   const { cardNumber, cards } = this.state
-    //   const stateJson = JSON.stringify({ cardNumber, cards })
-    //   localStorage.setItem('card-app-state', stateJson)
-    // })
+    window.addEventListener('beforeunload', () => {
+      const { cardNumber, cards } = this.state
+      const stateJson = JSON.stringify({ cardNumber, cards })
+      localStorage.setItem('card-app-state', stateJson)
+    })
   }
 
   render() {
