@@ -34,19 +34,19 @@ export default class CardEditor extends React.Component {
   render() {
     console.log(this.props)
     return (
-      <div>
-        <div className="title">Edit this Flash Card</div>
-        <form className="card-body" onSubmit={this.handleSubmit}>
+      <div className="card border-light text-center w-50 m-auto shadow-lg">
+        <div className="card-header p-5">Edit this Flash Card</div>
+        <form className="card-body p-5" onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label className="question">Question</label>
             <input
               required
               type="text"
               name="question"
-              className="form-control"
+              className="form-control form-control-lg shadow-lg"
               id="question"
-              value = {this.state.question}
-              onChange={this.handleChange}/>
+              value={this.state.question}
+              onChange={this.handleChange} />
           </div>
           <div className="form-group">
             <label className="answer">Answer</label>
@@ -54,13 +54,13 @@ export default class CardEditor extends React.Component {
               required
               type="text"
               name="answer"
-              className="form-control"
+              className="form-control form-control-lg shadow-lg"
               id="answer"
               value={this.state.answer}
-              onChange={this.handleChange}/>
+              onChange={this.handleChange} />
 
           </div>
-          <button type="submit" className="btn btn-secondary btn-lg btn-block"><em>Update</em></button>
+          <button type="submit" className="btn btn-secondary btn-lg btn-block my-5 shadow-lg"><em>Update</em></button>
         </form>
       </div>
     )

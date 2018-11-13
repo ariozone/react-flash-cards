@@ -1,6 +1,6 @@
 import React from 'react'
 const styles = {
-  card: {width: '18rem'}
+  card: { width: '20rem' }
 }
 export default class CardsList extends React.Component {
   render() {
@@ -12,11 +12,11 @@ export default class CardsList extends React.Component {
               this.props.cards.map((card, number) => {
                 const id = card.id
                 return (
-                  <div id={id} key={number} className="card" style={styles.card} >
+                  <div id={id} key={number} className="card border-light mb-3 shadow-lg" style={styles.card}>
                     <div className="card-body">
-                      <h5 className="card-title">Q:  {card.question}</h5>
-                      <h6 className="card-text">A:  {card.answer}</h6>
-                      <a href= {`#edit?cardId=${id}`} className="far fa-edit"></a>
+                      <h6 className="card-title">{card.question}</h6>
+                      <p className="card-text"> &nbsp;&nbsp; {card.answer}</p>
+                      <a href={`#edit?cardId=${id}`} className="far fa-edit"></a>
                     </div>
                   </div>
                 )
@@ -29,7 +29,7 @@ export default class CardsList extends React.Component {
     }
     else {
       return (
-        <div className="container p-2">
+        <div className="container p-2 shadow-lg">
           <div className="row d-flex justify-content-center">
             <div className="card text-center" style={styles.card}>
               <div className="card-body">
