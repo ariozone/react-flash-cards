@@ -17,6 +17,7 @@ export default class CardsList extends React.Component {
                       <h6 className="card-title">{card.question}</h6>
                       <p className="card-text"> &nbsp;&nbsp; {card.answer}</p>
                       <a href={`#edit?cardId=${id}`} className="far fa-edit"></a>
+                      <i className="far fa-trash-alt"></i>
                     </div>
                   </div>
                 )

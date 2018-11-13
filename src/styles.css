@@ -33,3 +33,10 @@ label {
 .nav-link {
   font-family: 'Open Sans', sans-serif;
 }
+
+.far {
+  margin: 2%;
+  float: right;
+  color: gray;
+  cursor: pointer;
+}
