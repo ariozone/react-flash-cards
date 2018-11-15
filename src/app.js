@@ -4,7 +4,7 @@ import CardsList from './cards-list'
 import Navbar from './navbar'
 import hash from './hash'
 import CardEditor from './edit-card'
-// import Practice from './practice'
+import Practice from './practice'
 
 export default class App extends Component {
   constructor(props) {
@@ -61,6 +61,8 @@ export default class App extends Component {
     switch (path) {
       case 'create':
         return <CardCreator onSubmit={this.saveCard} cardNumber={this.state.cardNumber} />
+      case 'practice':
+        return <Practice />
       case 'edit':
         const { cardId } = params
         const selectedCard = cardId
