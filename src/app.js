@@ -4,6 +4,7 @@ import CardsList from './cards-list'
 import Navbar from './navbar'
 import hash from './hash'
 import CardEditor from './edit-card'
+// import Practice from './practice'
 
 export default class App extends Component {
   constructor(props) {

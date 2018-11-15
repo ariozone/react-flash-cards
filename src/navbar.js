@@ -11,7 +11,7 @@ export default function Navbar() {
           <li className="nav-item ">
             <a className="nav-link text-center" href="#create">Create a Flashcard</a></li>
           <li className="nav-item ">
-            <a className="nav-link text-center" href="#create">Practice</a></li></ul>
+            <a className="nav-link text-center" href="#practice">Practice</a></li></ul>
       </div>
     </nav>
   )
