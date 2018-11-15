@@ -25,27 +25,27 @@ export default class CardCreator extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     const { question, answer } = this.state
-    this.setState({question: '', answer: ''})
-    this.props.onSubmit({question, answer})
+    this.setState({ question: '', answer: '' })
+    this.props.onSubmit({ question, answer })
 
   }
 
   render() {
     const { question, answer } = this.state
     return (
-      <div>
-        <div className="title">Creat a Flash Card</div>
-        <form className="card-body" onSubmit={this.handleSubmit}>
+      <div className="card border-light text-center w-50 m-auto shadow-lg">
+        <div className="card-header p-5">Create a Flash Card</div>
+        <form className="card-body p-5" onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label className="question">Question</label>
             <input
               required
               type="text"
               name="question"
-              className="form-control"
+              className="form-control form-control-lg shadow-lg"
               id="question"
-              value = {question}
-              onChange={this.handleChange}/>
+              value={question}
+              onChange={this.handleChange} />
           </div>
           <div className="form-group">
             <label className="answer">Answer</label>
@@ -53,13 +53,12 @@ export default class CardCreator extends React.Component {
               required
               type="text"
               name="answer"
-              className="form-control"
+              className="form-control form-control-lg shadow-lg"
               id="answer"
               value={answer}
-              onChange={this.handleChange}/>
-
+              onChange={this.handleChange} />
+            <button type="submit" className="btn btn-secondary btn-lg btn-block my-5 shadow-lg">Save</button>
           </div>
-          <button type="submit" className="btn btn-secondary btn-lg btn-block"><em>Save</em></button>
         </form>
       </div>
     )

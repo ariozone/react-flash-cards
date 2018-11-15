@@ -12,26 +12,29 @@ export default class App extends Component {
     const appState = JSON.parse(stateJson) || {}
     const { path, params } = hash.parse(location.hash)
     this.state = {
-      view: {path, params},
+      view: { path, params },
       cards: appState.cards || [],
       cardNumber: appState.cardNumber || 1
     }
     this.saveCard = this.saveCard.bind(this)
     this.updateCard = this.updateCard.bind(this)
+    this.deleteCard = this.deleteCard.bind(this)
   }
 
   saveCard(card) {
-    const {cardNumber, cards} = this.state
+    const { cardNumber, cards } = this.state
     const cardsArray = cards.slice()
     card.id = cardNumber
     cardsArray.push(card)
-    this.setState({cards: cardsArray,
-      cardNumber: cardNumber + 1})
+    this.setState({
+      cards: cardsArray,
+      cardNumber: cardNumber + 1
+    })
     location.hash = '#list'
   }
 
   updateCard(changedCard) {
-    const {cards} = this.state
+    const { cards } = this.state
     const cardsArray = cards.map(card => {
       if (card.id === parseInt(this.state.view.params.cardId, 10)) {
         return changedCard
@@ -46,19 +49,25 @@ export default class App extends Component {
     location.hash = '#list'
   }
 
+  deleteCard(e) {
+    const id = parseInt(e.target.id, 10)
+    const cards = [...this.state.cards].filter(card => card.id !== id)
+    this.setState({ cards })
+  }
+
   renderView() {
     const { path, params } = this.state.view
     switch (path) {
       case 'create':
-        return <CardCreator onSubmit={this.saveCard} cardNumber={this.state.cardNumber}/>
+        return <CardCreator onSubmit={this.saveCard} cardNumber={this.state.cardNumber} />
       case 'edit':
         const { cardId } = params
         const selectedCard = cardId
           ? this.state.cards.find(card => card.id === parseInt(cardId, 10))
           : this.state.cards
-        return <CardEditor selectedCard={selectedCard} onSubmit={this.updateCard}/>
+        return <CardEditor selectedCard={selectedCard} onSubmit={this.updateCard} />
       default:
-        return <CardsList cards={this.state.cards}/>
+        return <CardsList cards={this.state.cards} deleteCard={this.deleteCard} />
     }
   }
 
@@ -79,7 +88,7 @@ export default class App extends Component {
   render() {
     return (
       <Fragment>
-        <Navbar/>
+        <Navbar />
         {this.renderView()}
       </Fragment>
     )
