@@ -49,9 +49,9 @@ export default class App extends Component {
     location.hash = '#list'
   }
 
-  deleteCard(cardIndex) {
-    const cards = [...this.state.cards]
-    cards.splice(cardIndex, 1)
+  deleteCard(e) {
+    const id = parseInt(e.target.id, 10)
+    const cards = [...this.state.cards].filter(card => card.id !== id)
     this.setState({ cards })
   }
 
@@ -67,7 +67,7 @@ export default class App extends Component {
           : this.state.cards
         return <CardEditor selectedCard={selectedCard} onSubmit={this.updateCard} />
       default:
-        return <CardsList cards={this.state.cards} />
+        return <CardsList cards={this.state.cards} deleteCard={this.deleteCard} />
     }
   }
 

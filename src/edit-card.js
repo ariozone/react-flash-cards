@@ -32,7 +32,6 @@ export default class CardEditor extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div className="card border-light text-center w-50 m-auto shadow-lg">
         <div className="card-header p-5">Edit this Flash Card</div>
