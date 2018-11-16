@@ -3,10 +3,12 @@ export default class Practice extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentCard: 0
+      currentCard: 0,
+      viewAnswer: false
     }
     this.toLeft = this.toLeft.bind(this)
     this.toRight = this.toRight.bind(this)
+    this.viewAnswer = this.viewAnswer.bind(this)
   }
 
   toLeft() {
@@ -29,7 +31,13 @@ export default class Practice extends React.Component {
     }
   }
 
+  toggleAnswer() {
+    this.setState({ viewAnswer: !this.viewAnswer })
+  }
+
   render() {
+    const { cards } = this.props
+    const { currentCard } = this.state
     return (
       <div className="container p-2">
         <div className="row d-flex justify-content-center">
@@ -40,8 +48,8 @@ export default class Practice extends React.Component {
           </span>
           <div className="card w-50 text-center shadow-lg border-light">
             <div className="card-body">
-              <h6 className="card-title mt-3">{this.props.cards[this.state.currentCard].question}</h6>
-              <p className="card-text">{this.props.cards[this.state.currentCard].answer}</p>
+              <h6 className="card-title mt-3">{cards[currentCard].question}</h6>
+              <p className="card-text"><i className="fas fa-unlock fa-2x" onClick={this.toggleAnswer}></i>{cards[currentCard].answer}</p>
             </div>
           </div>
           <span>
