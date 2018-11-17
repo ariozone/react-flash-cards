@@ -2,7 +2,7 @@ import React from 'react'
 export default function Navbar() {
   return (
 
-    <nav className="navbar-expand-lg navbar-light bg-light mx-auto mb-5 p-3 border-light shadow-lg" id="navbarColor03">
+    <nav className="navbar-expand-lg navbar-light bg-light mb-5 p-3 border-light shadow-lg" id="navbarColor03">
       <div className="collapse navbar-collapse">
         <ul className="navbar-nav">
           <a className="navbar-item" id="brand"><i

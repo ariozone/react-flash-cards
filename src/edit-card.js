@@ -59,7 +59,7 @@ export default class CardEditor extends React.Component {
               onChange={this.handleChange} />
 
           </div>
-          <button type="submit" className="btn btn-secondary btn-lg btn-block my-5 shadow-lg"><em>Update</em></button>
+          <button type="submit" className="btn btn-secondary btn-lg btn-block my-5 shadow-lg">Update</button>
         </form>
       </div>
     )
