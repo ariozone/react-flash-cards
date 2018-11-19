@@ -35,13 +35,10 @@ export default class CardsList extends React.Component {
           <div
             className="text-center mt-3">
             <div className="h1">You have no flash cards</div>
-            <button
-              type="button"
-              className="btn btn-outline-secondary btn-lg btn-block mt-5 shadow-lg">
-              <a
-                href="#create"
-                style={styles.button}>Create One</a>
-            </button>
+            <a
+              href="#create" id="create">
+              <button
+                className="btn btn-secondary btn-lg btn-block my-5 shadow-lg">Create One</button></a>
           </div>
         </div>
       )
