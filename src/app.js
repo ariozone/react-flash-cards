@@ -62,7 +62,9 @@ export default class App extends Component {
       case 'create':
         return <CardCreator onSubmit={this.saveCard} cardNumber={this.state.cardNumber} />
       case 'practice':
-        return <Practice cards={this.state.cards} />
+        return this.state.cards.length > 1
+          ? <Practice cards={this.state.cards} />
+          : <CardsList cards={this.state.cards} />
       case 'edit':
         const { cardId } = params
         const selectedCard = cardId
