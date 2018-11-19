@@ -1,6 +1,5 @@
 {
   "name": "React-Flash-Cards",
-  "private": true,
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -54,6 +53,8 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "stylelint": "9.4.0",
-    "stylelint-config-standard": "18.2.0"
+    "stylelint-config-standard": "18.2.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
   }
 }
